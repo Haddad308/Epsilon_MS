@@ -24,7 +24,6 @@ Mentor.hasMany(MentorHistory, { foreignKey: "MentorId" })
 MentorHistory.belongsTo(Mentor, { foreignKey: "id" })
 
 // Add the group relationship. 
-// Add the group relationship. 
 Group.hasMany(MentorHistory, { foreignKey: "groupId" })
 MentorHistory.belongsTo(Group, { foreignKey: "id" })
 

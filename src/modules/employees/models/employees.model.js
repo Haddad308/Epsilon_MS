@@ -5,12 +5,16 @@ import sequelize from "../../../db/connection.js";
 const Employee = sequelize.define("Employee", {
     id: {
         type: DataTypes.UUID,
+        defaultValue: DataTypes.UUID,
         primaryKey: true,
         allowNull: false
     },
-    userName: {
+    firstName: {
         type: DataTypes.STRING,
-        unique: true,
+        allowNull: false
+    },
+    lastName: {
+        type: DataTypes.STRING,
         allowNull: false
     },
     email: {
@@ -20,10 +24,6 @@ const Employee = sequelize.define("Employee", {
             isEmail: true
         }
     },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
     birthDate: {
         type: DataTypes.DATE,
     },
@@ -31,6 +31,7 @@ const Employee = sequelize.define("Employee", {
         type: DataTypes.STRING,
         validate: {
             is: /^(010|012|011|015)\d{8}$/
+            
         }
     }
 })

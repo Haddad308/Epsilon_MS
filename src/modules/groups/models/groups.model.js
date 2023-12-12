@@ -7,7 +7,8 @@ import Employee from '../../employees/models/employees.model.js';
 
 const Group = sequelize.define('Group', {
   id: {
-    type: DataTypes.UUID,
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
     primaryKey: true,
     allowNull: false,
   },
@@ -38,6 +39,6 @@ Group.belongsTo(Assistant, { foreignKey: 'id' });
 Mentor.hasMany(Group, { foreignKey: 'mentorId' });
 Group.belongsTo(Mentor, { foreignKey: 'id' });
 
-Group.sync();
+await Group.sync();
 
 export default Group;

@@ -5,9 +5,9 @@ import Group from "../../groups/models/groups.model.js"
 
 const ProgressSheet = sequelize.define("progressSheet", {
     id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         primaryKey: true,
-        allowNull: false
+        autoIncrement: true
     },
     SessionTime: {
         type: DataTypes.DATE,
@@ -23,6 +23,7 @@ const ProgressSheet = sequelize.define("progressSheet", {
     }
 })
 
+
 Employee.hasOne(ProgressSheet, { foreignKey: "employeeId" });
 ProgressSheet.belongsTo(Employee, {foreignKey: "id"})
 
@@ -30,6 +31,6 @@ ProgressSheet.belongsTo(Employee, {foreignKey: "id"})
 Group.hasMany(ProgressSheet,{foreignKey:"groupId"})
 ProgressSheet.belongsTo(Group,{foreignKey:"id"})
 
-ProgressSheet.sync();
+await ProgressSheet.sync();
 
 export default ProgressSheet; 

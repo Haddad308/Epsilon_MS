@@ -5,9 +5,9 @@ import Group from '../../groups/models/groups.model.js';
 
 const InstructorHistory = sequelize.define('InstructorHistory', {
   id: {
-    type: DataTypes.UUID,
+    type: DataTypes.INTEGER,
     primaryKey: true,
-    allowNull: false,
+    autoIncrement: true
   },
   instructor_start_date: {
     type: DataTypes.DATE,
@@ -26,6 +26,6 @@ InstructorHistory.belongsTo(Instructor, { foreignKey: 'id' });
 Group.hasMany(InstructorHistory, { foreignKey: 'groupId' });
 InstructorHistory.belongsTo(Group, { foreignKey: 'id' });
 
-InstructorHistory.sync();
+await InstructorHistory.sync();
 
 export default InstructorHistory;

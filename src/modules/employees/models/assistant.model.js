@@ -4,15 +4,15 @@ import Employee from './employees.model.js';
 
 const Assistant = sequelize.define('Assistant', {
   id: {
-    type: DataTypes.UUID,
+    type: DataTypes.INTEGER,
     primaryKey: true,
-    allowNull: false,
+    autoIncrement: true
   },
 });
 
 Employee.hasOne(Assistant, { foreignKey: 'employeeId' });
 Assistant.belongsTo(Employee, { foreignKey: 'id' });
 
-Assistant.sync();
+await Assistant.sync();
 
 export default Assistant;

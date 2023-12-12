@@ -4,7 +4,8 @@ import Group from "./groups.model.js";
 
 const MidGrading = sequelize.define("MidGrading", {
     id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         primaryKey: true,
         allowNull: false
     },
@@ -29,6 +30,6 @@ const MidGrading = sequelize.define("MidGrading", {
 Group.hasMany(MidGrading, { foreignKey: "groupId" });
 MidGrading.belongsTo(Group, { foreignKey: "id" });
 
-MidGrading.sync()
+await MidGrading.sync()
 
 export default MidGrading; 

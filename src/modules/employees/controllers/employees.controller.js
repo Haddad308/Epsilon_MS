@@ -1,11 +1,20 @@
 import Employee from '../models/employees.model.js';
+import Assistant from '../models/assistant.model.js';
+import Instructor from '../models/instructor.model.js';
+import Mentor from '../models/mentor.model.js';
+import AssistantHistory from '../models/assistantHistory.model.js';
+import InstructorHistory from '../models/instructorHistory.model.js';
+import MentorHistory from '../models/mentorHistory.model.js';
 
-const getAllEmployees = async (req, res) => {
+
+
+
+const getAllEmployees = async (req, res, next) => {
   try {
     const data = await Employee.findAll();
     res.json(data);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    next(error)
   }
 };
 
@@ -25,27 +34,43 @@ const addEmployee = async (req, res, next) => {
   }
 };
 
-const getEmployee = async (req, res) => {
+const getEmployee = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const data = await Note.findByPk(id);
+    const data = await Employee.findByPk(id);
     res.json({ data });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    next(error)
   }
 };
 
 const editEmployee = async (req, res) => {
   try {
+    const { id } = req.params;
+    const { firstName, lastName, email, phoneNumber, birthDate } = req.body;
+    const data = await Employee.update(
+      {
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        birthDate,
+      },
+      { where: { id } }
+    );
+    res.json({ data });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    next(error)
   }
 };
 
-const deleteEmployee = async (req, res) => {
+const deleteEmployee = async (req, res, next) => {
   try {
+    const { id } = req.params;
+    const data = await Employee.destroy({ where: { id } });
+    res.json({ data });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 

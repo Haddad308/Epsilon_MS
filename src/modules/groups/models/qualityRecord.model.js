@@ -4,7 +4,8 @@ import Group from './groups.model.js';
 
 const QualityRecord = sequelize.define('QualityRecord', {
   id: {
-    type: DataTypes.UUID,
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
     primaryKey: true,
     allowNull: false,
   },
@@ -25,6 +26,6 @@ const QualityRecord = sequelize.define('QualityRecord', {
 Group.hasMany(QualityRecord, { foreignKey: 'groupId' });
 QualityRecord.belongsTo(Group, { foreignKey: 'id' });
 
-QualityRecord.sync();
+await QualityRecord.sync();
 
 export default QualityRecord;

@@ -6,6 +6,9 @@ import {
     editProgressSheet,
     deleteProgressSheet
 } from "../controllers/progressSheet.controller.js";
+import { checkProgressSheet } from "../middlewares/progressSheet.middleware.js";
+
+
 
 const router = Router();
 
@@ -17,9 +20,9 @@ router
 
 router
     .route("/:id")
-    .get(getProgressSheet)
-    .patch(editProgressSheet)
-    .delete(deleteProgressSheet)
+    .get(checkProgressSheet, getProgressSheet)
+    .patch(checkProgressSheet, editProgressSheet)
+    .delete(checkProgressSheet, deleteProgressSheet)
 
 
 export default router; 

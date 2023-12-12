@@ -5,7 +5,8 @@ import Group from './groups.model.js';
 
 const Problem = sequelize.define('Problem', {
   id: {
-    type: DataTypes.UUID,
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
     primaryKey: true,
     allowNull: false,
   },
@@ -24,6 +25,6 @@ Problem.belongsTo(Group, { foreignKey: 'id' });
 Mentor.hasMany(Problem, { foreignKey: 'mentorId' });
 Problem.belongsTo(Mentor, { foreignKey: 'id' });
 
-Problem.sync();
+await Problem.sync();
 
 export default Problem;

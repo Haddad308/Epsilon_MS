@@ -1,8 +1,9 @@
 import { Sequelize } from 'sequelize';
 
-const sequelize = new Sequelize('a1', 'root', '', {
+const sequelize = new Sequelize('epsilon', 'root', '', {
   host: 'localhost',
   dialect: 'mysql',
 });
+
 
 export default sequelize;

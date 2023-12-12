@@ -5,7 +5,8 @@ import Group from "./groups.model.js";
 
 const FinalGrading = sequelize.define("FinalGrading", {
     id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
+        autoIncrement:true,
         primaryKey: true,
         allowNull: false
     },
@@ -30,6 +31,6 @@ const FinalGrading = sequelize.define("FinalGrading", {
 Group.hasMany(FinalGrading, { foreignKey: "groupId" });
 FinalGrading.belongsTo(Group, { foreignKey: "id" });
 
-FinalGrading.sync()
+await FinalGrading.sync()
 
 export default FinalGrading; 

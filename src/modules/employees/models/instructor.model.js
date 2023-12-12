@@ -4,15 +4,15 @@ import Employee from './employees.model.js';
 
 const Instructor = sequelize.define('Instructor', {
   id: {
-    type: DataTypes.UUID,
+    type: DataTypes.INTEGER,
     primaryKey: true,
-    allowNull: false,
+    autoIncrement: true
   },
 });
 
 Employee.hasOne(Instructor, { foreignKey: 'employeeId' });
 Instructor.belongsTo(Employee, { foreignKey: 'id' });
 
-Instructor.sync();
+await Instructor.sync();
 
 export default Instructor;

@@ -3,10 +3,9 @@ import sequelize from '../../../db/connection.js';
 
 const Employee = sequelize.define('Employee', {
   id: {
-    type: DataTypes.UUID,
-    defaultValue: DataTypes.UUID,
+    type: DataTypes.INTEGER,
     primaryKey: true,
-    allowNull: false,
+    autoIncrement: true
   },
   firstName: {
     type: DataTypes.STRING,
@@ -19,21 +18,25 @@ const Employee = sequelize.define('Employee', {
   email: {
     type: DataTypes.STRING,
     allowNull: false,
-    validate: {
-      isEmail: true,
-    },
+    // validate: {
+    //   isEmail: true,
+    // },
   },
   birthDate: {
-    type: DataTypes.DATE,
+    type: DataTypes.STRING,
+    allowNull: false,
   },
   phoneNumber: {
     type: DataTypes.STRING,
-    validate: {
-      is: /^(010|012|011|015)\d{8}$/,
-    },
+    // validate: {
+    //   is: {
+    //     args: /^(010|012|011|015)\d{8}$/,
+    //     msg: 'Phone number is invalid',
+    //   }
+    // },
   },
 });
 
-Employee.sync();
+await Employee.sync();
 
 export default Employee;

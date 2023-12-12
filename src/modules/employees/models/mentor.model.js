@@ -4,15 +4,15 @@ import Employee from './employees.model.js';
 
 const Mentor = sequelize.define('Mentor', {
   id: {
-    type: DataTypes.UUID,
+    type: DataTypes.INTEGER,
     primaryKey: true,
-    allowNull: false,
+    autoIncrement: true
   },
 });
 
 Employee.hasOne(Mentor, { foreignKey: 'employeeId' });
 Mentor.belongsTo(Employee, { foreignKey: 'id' });
 
-Mentor.sync();
+await Mentor.sync();
 
 export default Mentor;

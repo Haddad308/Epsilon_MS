@@ -1,8 +1,8 @@
 import express from 'express';
 
 import employeesRouter from './src/modules/employees/routers/employees.router.js';
-import progressSheetRouter from './src/modules/employees/routers/progressSheet.router.js';
 import groupsRouter from './src/modules/groups/routers/groups.router.js';
+import progressSheetRouter from './src/modules/employees/routers/progressSheet.router.js';
 import gradesRouter from './src/modules/groups/routers/grades.router.js';
 import problemsRouter from './src/modules/groups/routers/problems.router.js';
 import qualitiesRouter from './src/modules/groups/routers/qualities.router.js';
@@ -15,18 +15,16 @@ app.use(express.json());
 
 // Our great routers.
 app.use('/employees', employeesRouter);
-app.use('/progress-sheets', progressSheetRouter);
 app.use('/groups', groupsRouter);
+app.use('/progress-sheets', progressSheetRouter);
 app.use('/grades', gradesRouter);
 app.use('/problems', problemsRouter);
 app.use('/qualities', qualitiesRouter);
 
-app.get('/', (req, res) => res.send('Hello World!'));
-
 // Error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).send('Something broke!');
+  res.status(500).send({ error: err.message });
 });
 
 // Not found handler

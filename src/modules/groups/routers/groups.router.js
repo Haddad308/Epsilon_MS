@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { checkGroup } from '../middlewares/groups.middleware.js';
 
 import {
   getAllGroups,
@@ -13,8 +14,8 @@ const router = Router();
 router.get('/', getAllGroups);
 router.post('/', addGroup);
 
-router.get('/:groupId', getGroup);
-router.patch('/:groupId', editGroup);
-router.delete('/:groupId', deleteGroup);
+router.get('/:groupId',checkGroup, getGroup);
+router.patch('/:groupId',checkGroup, editGroup);
+router.delete('/:groupId',checkGroup, deleteGroup);
 
 export default router;

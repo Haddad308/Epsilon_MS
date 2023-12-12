@@ -9,7 +9,7 @@ const getAllEmployees = async (req, res) => {
   }
 };
 
-const addEmployee = async (req, res) => {
+const addEmployee = async (req, res, next) => {
   try {
     const { firstName, lastName, email, phoneNumber, birthDate } = req.body;
     const data = await Employee.create({
@@ -21,7 +21,7 @@ const addEmployee = async (req, res) => {
     });
     res.status(201).json({ data });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 

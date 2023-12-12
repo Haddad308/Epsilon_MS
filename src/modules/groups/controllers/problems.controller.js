@@ -1,51 +1,38 @@
-import Problem from "../models/problems.model"
-
+import Problem from '../models/problems.model.js';
 
 const getAllProblems = async (req, res) => {
-    try {
-
-    } catch (error) {
-        res.status(500).json({ message: error.message })
-    }
-}
+  try {
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
 const addProblem = async (req, res) => {
-    try {
-
-    } catch (error) {
-        res.status(500).json({ message: error.message })
-    }
-}
+  try {
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
 const getProblem = async (req, res) => {
-    try {
-
-    } catch (error) {
-        res.status(500).json({ message: error.message })
-    }
-}
+  try {
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
 const editProblem = async (req, res) => {
-    try {
-
-    } catch (error) {
-        res.status(500).json({ message: error.message })
-    }
-}
+  try {
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
 const deleteProblem = async (req, res) => {
-    try {
+  try {
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
-    } catch (error) {
-        res.status(500).json({ message: error.message })
-    }
-}
-
-
-export {
-    getAllProblems,
-    addProblem,
-    getProblem,
-    editProblem,
-    deleteProblem
-}
+export { getAllProblems, addProblem, getProblem, editProblem, deleteProblem };

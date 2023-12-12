@@ -1,24 +1,20 @@
-import { Router } from "express";
+import { Router } from 'express';
 
 import {
-    getAllGroups,
-    addGroup,
-    getGroup,
-    editGroup,
-    deleteGroup
-} from "../controllers/groups.controller.js"
+  getAllGroups,
+  addGroup,
+  getGroup,
+  editGroup,
+  deleteGroup,
+} from '../controllers/groups.controller.js';
 
-const router = Router()
+const router = Router();
 
-router
-    .route("/")
-    .get(getAllGroups)
-    .post(addGroup); 
+router.get('/', getAllGroups);
+router.post('/', addGroup);
 
-router  
-    .route("/:groupId")
-    .get(getGroup)
-    .patch(editGroup)
-    .delete(deleteGroup);
+router.get('/:groupId', getGroup);
+router.patch('/:groupId', editGroup);
+router.delete('/:groupId', deleteGroup);
 
-export default router; 
+export default router;

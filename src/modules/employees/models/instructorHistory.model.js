@@ -19,12 +19,12 @@ const InstructorHistory = sequelize.define('InstructorHistory', {
   },
 });
 
-Instructor.hasMany(InstructorHistory, { foreignKey: 'instructorId' });
-InstructorHistory.belongsTo(Instructor, { foreignKey: 'id' });
+Instructor.hasMany(InstructorHistory);
+InstructorHistory.belongsTo(Instructor);
 
 // Add the group relationship.
-Group.hasMany(InstructorHistory, { foreignKey: 'groupId' });
-InstructorHistory.belongsTo(Group, { foreignKey: 'id' });
+Group.hasMany(InstructorHistory);
+InstructorHistory.belongsTo(Group);
 
 await InstructorHistory.sync();
 

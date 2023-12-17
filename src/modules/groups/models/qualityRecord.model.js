@@ -23,8 +23,8 @@ const QualityRecord = sequelize.define('QualityRecord', {
   },
 });
 
-Group.hasMany(QualityRecord, { foreignKey: 'groupId' });
-QualityRecord.belongsTo(Group, { foreignKey: 'id' });
+Group.hasMany(QualityRecord);
+QualityRecord.belongsTo(Group);
 
 await QualityRecord.sync();
 

@@ -20,12 +20,12 @@ const MentorHistory = sequelize.define("MentorHistory", {
 });
 
 
-Mentor.hasMany(MentorHistory, { foreignKey: "MentorId" })
-MentorHistory.belongsTo(Mentor, { foreignKey: "id" })
+Mentor.hasMany(MentorHistory)
+MentorHistory.belongsTo(Mentor)
 
 // Add the group relationship. 
-Group.hasMany(MentorHistory, { foreignKey: "groupId" })
-MentorHistory.belongsTo(Group, { foreignKey: "id" })
+Group.hasMany(MentorHistory)
+MentorHistory.belongsTo(Group)
 
 
 await MentorHistory.sync()

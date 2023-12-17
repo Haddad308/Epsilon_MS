@@ -30,14 +30,14 @@ const Group = sequelize.define('Group', {
   },
 });
 
-Instructor.hasMany(Group, { foreignKey: 'instructorId' });
-Group.belongsTo(Instructor, { foreignKey: 'id' });
+Instructor.hasMany(Group);
+Group.belongsTo(Instructor);
 
-Assistant.hasMany(Group, { foreignKey: 'assistantId' });
-Group.belongsTo(Assistant, { foreignKey: 'id' });
+Assistant.hasMany(Group);
+Group.belongsTo(Assistant);
 
-Mentor.hasMany(Group, { foreignKey: 'mentorId' });
-Group.belongsTo(Mentor, { foreignKey: 'id' });
+Mentor.hasMany(Group);
+Group.belongsTo(Mentor);
 
 await Group.sync();
 

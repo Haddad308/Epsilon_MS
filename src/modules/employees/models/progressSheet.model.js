@@ -24,12 +24,12 @@ const ProgressSheet = sequelize.define("progressSheet", {
 })
 
 
-Employee.hasOne(ProgressSheet, { foreignKey: "employeeId" });
-ProgressSheet.belongsTo(Employee, {foreignKey: "id"})
+Employee.hasOne(ProgressSheet);
+ProgressSheet.belongsTo(Employee)
 
 // Add the group relationship. 
-Group.hasMany(ProgressSheet,{foreignKey:"groupId"})
-ProgressSheet.belongsTo(Group,{foreignKey:"id"})
+Group.hasMany(ProgressSheet)
+ProgressSheet.belongsTo(Group)
 
 await ProgressSheet.sync();
 

@@ -27,8 +27,8 @@ const MidGrading = sequelize.define("MidGrading", {
 })
 
 
-Group.hasMany(MidGrading, { foreignKey: "groupId" });
-MidGrading.belongsTo(Group, { foreignKey: "id" });
+Group.hasMany(MidGrading);
+MidGrading.belongsTo(Group);
 
 await MidGrading.sync()
 

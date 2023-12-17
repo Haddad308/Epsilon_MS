@@ -16,18 +16,18 @@ const addGroup =  async (req, res, next) => {
       schedule,
       start_date,
       end_date,
-      instructorId,
-      assistantId,
-      mentorId,
+      InstructorId,
+      AssistantId,
+      MentorId,
     } = req.body;
     const data = await Group.create({
       code,
       schedule,
       start_date,
       end_date,
-      instructorId,
-      assistantId,
-      mentorId,
+      InstructorId,
+      AssistantId,
+      MentorId,
     });
     res.status(201).json({ data });
   } catch (error) {
@@ -53,19 +53,20 @@ const editGroup = async (req, res, next) => {
       schedule,
       start_date,
       end_date,
-      instructorId,
-      assistantId,
-      mentorId
+      InstructorId,
+      AssistantId,
+      MentorId
     } = req.body;
+    console.log(req.body);
     const data = await Group.update(
       {
         code,
         schedule,
         start_date,
         end_date,
-        instructorId,
-        assistantId,
-        mentorId
+        InstructorId,
+        AssistantId,
+        MentorId
       },
       { where: { id: parseInt(groupId) } }
     );

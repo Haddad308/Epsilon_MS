@@ -10,8 +10,8 @@ const Mentor = sequelize.define('Mentor', {
   },
 });
 
-Employee.hasOne(Mentor, { foreignKey: 'employeeId' });
-Mentor.belongsTo(Employee, { foreignKey: 'id' });
+Employee.hasOne(Mentor);
+Mentor.belongsTo(Employee);
 
 await Mentor.sync();
 

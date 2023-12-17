@@ -21,12 +21,12 @@ const AssistantHistory = sequelize.define("AssistantHistory", {
 });
 
 
-Assistant.hasMany(AssistantHistory, { foreignKey: "AssistantId" })
-AssistantHistory.belongsTo(Assistant, { foreignKey: "id" })
+Assistant.hasMany(AssistantHistory)
+AssistantHistory.belongsTo(Assistant)
 
 // Add the group relationship. 
-Group.hasMany(AssistantHistory, { foreignKey: "groupId" })
-AssistantHistory.belongsTo(Group, { foreignKey: "id" })
+Group.hasMany(AssistantHistory)
+AssistantHistory.belongsTo(Group)
 
 
 await AssistantHistory.sync()

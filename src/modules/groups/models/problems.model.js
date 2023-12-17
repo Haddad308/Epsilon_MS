@@ -19,11 +19,11 @@ const Problem = sequelize.define('Problem', {
   },
 });
 
-Group.hasMany(Problem, { foreignKey: 'groupId' });
-Problem.belongsTo(Group, { foreignKey: 'id' });
+Group.hasMany(Problem);
+Problem.belongsTo(Group);
 
-Mentor.hasMany(Problem, { foreignKey: 'mentorId' });
-Problem.belongsTo(Mentor, { foreignKey: 'id' });
+Mentor.hasMany(Problem);
+Problem.belongsTo(Mentor);
 
 await Problem.sync();
 

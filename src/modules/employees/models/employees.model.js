@@ -40,3 +40,5 @@ const Employee = sequelize.define('Employee', {
 await Employee.sync();
 
 export default Employee;
+
+

@@ -28,8 +28,8 @@ const FinalGrading = sequelize.define("FinalGrading", {
 })
 
 
-Group.hasMany(FinalGrading, { foreignKey: "groupId" });
-FinalGrading.belongsTo(Group, { foreignKey: "id" });
+Group.hasMany(FinalGrading);
+FinalGrading.belongsTo(Group);
 
 await FinalGrading.sync()
 

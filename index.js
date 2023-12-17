@@ -35,11 +35,11 @@ app.use((req, res, next) => {
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 
-// TODO: 0- create a new database with dummy data. 
-// 1- Employee (Done) 
-// 2- Instructor, assistant, mentor. (manually).  (Done)- we have a problems of duplicated foreign keys
+// *0- create a new database with dummy data. 
+// *1- Employee (Done) 
+// *2- Instructor, assistant, mentor. (manually).  (Done)- we have a problems of duplicated foreign keys
+// *3- Groups.  
 
-// 3- Groups.  
 // 4- Progress Sheet.  
 // 5- Histories.  
 // 6- Problems.  

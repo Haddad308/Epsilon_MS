@@ -8,6 +8,8 @@ import {
     deleteProblem
 } from "../controllers/problems.controller.js"
 
+import { checkGroup } from '../middlewares/problems.middleware.js';
+
 const router = Router()
 
 router
@@ -17,8 +19,8 @@ router
 
 router
     .route("/:problemId")
-    .get(getProblem)
-    .patch(editProblem)
-    .delete(deleteProblem);
+    .get(checkGroup,getProblem)
+    .patch(checkGroup,editProblem)
+    .delete(checkGroup,deleteProblem);
 
 export default router; 
